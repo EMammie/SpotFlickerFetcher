@@ -28,6 +28,7 @@
 		44E05A4118833C160082272F /* RecentPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E05A4018833C160082272F /* RecentPhotosViewController.m */; };
 		44E05A441883A5150082272F /* FlickPhotoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E05A431883A5150082272F /* FlickPhotoTableViewController.m */; };
 		44FD395B18EAC9CA0056773E /* RecentPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FD395A18EAC9CA0056773E /* RecentPhotos.m */; };
+		44FD395E18EB13520056773E /* RecentPhotoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FD395D18EB13520056773E /* RecentPhotoTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,8 @@
 		44E05A431883A5150082272F /* FlickPhotoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickPhotoTableViewController.m; sourceTree = "<group>"; };
 		44FD395918EAC9CA0056773E /* RecentPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentPhotos.h; sourceTree = "<group>"; };
 		44FD395A18EAC9CA0056773E /* RecentPhotos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentPhotos.m; sourceTree = "<group>"; };
+		44FD395C18EB13520056773E /* RecentPhotoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentPhotoTableViewController.h; sourceTree = "<group>"; };
+		44FD395D18EB13520056773E /* RecentPhotoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentPhotoTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +106,8 @@
 		4459CE8318E3AAAA00A32BB8 /* TableViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				44FD395C18EB13520056773E /* RecentPhotoTableViewController.h */,
+				44FD395D18EB13520056773E /* RecentPhotoTableViewController.m */,
 				44E05A421883A5150082272F /* FlickPhotoTableViewController.h */,
 				44E05A431883A5150082272F /* FlickPhotoTableViewController.m */,
 				44E05A3C188337760082272F /* TagTableViewController.h */,
@@ -325,6 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44FD395E18EB13520056773E /* RecentPhotoTableViewController.m in Sources */,
 				44E05A4118833C160082272F /* RecentPhotosViewController.m in Sources */,
 				44E05A3E188337760082272F /* TagTableViewController.m in Sources */,
 				4459CE8218E3AA9700A32BB8 /* ImageViewController.m in Sources */,
@@ -424,7 +430,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -458,7 +464,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FlickPhotoTableViewController.h"
 
-@interface RecentPhotosViewController : UITableViewController
+
+@interface RecentPhotosViewController : FlickPhotoTableViewController
 
 @property (nonatomic,strong) NSArray *recentPhotos;
 

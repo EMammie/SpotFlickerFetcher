@@ -8,6 +8,7 @@
 
 #import "TagTableViewController.h"
 #import "FlickrFetcher.h"
+//#import "RecentPhotos.h"
 
 @interface TagTableViewController ()
 
@@ -154,11 +155,16 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([sender isKindOfClass:[UITableViewCell class]]) {
+    if ([sender isKindOfClass:[UITableViewCell class]])
+    {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        if (indexPath) {
-            if ([segue.identifier isEqualToString:@"Show Photos"]) {
-                if ([segue.destinationViewController respondsToSelector:@selector(setPhotos:)]) {
+        if (indexPath)
+        {
+            if ([segue.identifier isEqualToString:@"Show Photos"])
+            {
+                if ([segue.destinationViewController respondsToSelector:@selector(setPhotos:)])
+                {
+                    //[RecentPhotos addPhoto:self.photos[indexPath.row]];
                     NSString *tag = [self tagForRow:indexPath.row];
                     [segue.destinationViewController performSelector:@selector(setPhotos:)
                                                           withObject:self.photosByTag[tag]];
