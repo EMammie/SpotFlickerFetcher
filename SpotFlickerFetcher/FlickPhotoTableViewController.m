@@ -62,7 +62,7 @@
     }
 }
 
-#pragma mark - Table view data source
+#pragma mark - Table view delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -89,10 +89,23 @@
     
     return cell;
 }
-- (void)didReceiveMemoryWarning
+
+
+
+- (void)sendDataforIndexPath:(NSIndexPath *)indexPath toViewController:(UIViewController *)vc
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    if ([vc respondsToSelector:@selector(setImageURL:)]) {
+        [RecentPhotos addPhoto:self.photos[indexPath.row]];
+        NSURL *url = [FlickrFetcher urlForPhoto:self.photos[indexPath.row] format:FlickrPhotoFormatLarge];
+        [vc performSelector:@selector(setImageURL:) withObject:url];
+        [vc setTitle:[self titleForRow:indexPath.row]];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self sendDataforIndexPath:indexPath
+              toViewController:[self.splitViewController.viewControllers lastObject]];
 }
 
 #pragma mark - Table view data source

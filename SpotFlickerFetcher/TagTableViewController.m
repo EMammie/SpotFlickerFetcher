@@ -44,14 +44,6 @@
     self.photosByTag = photosByTag;
 }
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 #pragma mark - View Lifecycle
 
 - (void)viewDidLoad
@@ -59,13 +51,13 @@
     [super viewDidLoad];
     self.photos = [FlickrFetcher stanfordPhotos];
     
- /*   NSLog(@"%@",FLICKR_TAGS);
+    NSLog(@"%@",FLICKR_TAGS);
     
     for (NSDictionary *photo in self.photos)
     {
-        NSLog(@"%@",photo);
+        NSLog(@"--%@", photo);
     }
-  */
+  
    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

@@ -51,15 +51,6 @@
     return _imageView;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 
 #pragma mark - View Controller Lifecycle
 
@@ -73,6 +64,9 @@
     self.scrollView.maximumZoomScale =.5;
     
     self.scrollView.delegate = self;
+    self.titleBarButtonItem.title = self.title;
+    self.splitViewController.delegate = self;
+    [self handleSplitViewBarButtonItem:self.splitViewBarButtonItem];
     [self resetImage];
 }
 
@@ -89,6 +83,14 @@
 
 }
 
+- (void)setZoomScaleToFillScreen
+{
+    double wScale = self.scrollView.bounds.size.width / self.imageView.image.size.width;
+    double hScale = self.scrollView.bounds.size.height / self.imageView.image.size.height;
+    if (wScale > hScale) self.scrollView.zoomScale = wScale;
+    else self.scrollView.zoomScale = hScale;
+}
+
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
     return self.imageView;
@@ -101,6 +103,7 @@
     double hScale = self.scrollView.bounds.size.height / self.imageView.image.size.height;
     if (wScale > hScale) self.scrollView.zoomScale = wScale;
     else self.scrollView.zoomScale = hScale;
+    [self setZoomScaleToFillScreen];
 }
 
 #pragma mark - SplitViewController Delegate methods
@@ -110,6 +113,39 @@
   invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
 {
     self.splitViewBarButtonItem = nil;
+}
+
+- (void)splitViewController:(UISplitViewController *)svc
+     willHideViewController:(UIViewController *)aViewController
+          withBarButtonItem:(UIBarButtonItem *)barButtonItem
+       forPopoverController:(UIPopoverController *)pc
+{
+    UIBarButtonItem *button = [[UIBarButtonItem alloc]
+                               initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
+                               target:barButtonItem.target
+                               action:barButtonItem.action];
+    barButtonItem = button;
+    self.splitViewBarButtonItem = barButtonItem;
+}
+
+- (void)setSplitViewBarButtonItem:(UIBarButtonItem *)splitViewBarButtonItem
+{
+    if (_splitViewBarButtonItem != splitViewBarButtonItem) {
+        [self handleSplitViewBarButtonItem:splitViewBarButtonItem];
+    }
+}
+
+- (void)handleSplitViewBarButtonItem:(UIBarButtonItem *)splitViewBarButtonItem
+{
+    NSMutableArray *toolbarItems = [self.toolbar.items mutableCopy];
+    if (_splitViewBarButtonItem) {
+        [toolbarItems removeObject:_splitViewBarButtonItem];
+    }
+    if (splitViewBarButtonItem) {
+        [toolbarItems insertObject:splitViewBarButtonItem atIndex:0];
+    }
+    self.toolbar.items = toolbarItems;
+    _splitViewBarButtonItem = splitViewBarButtonItem;
 }
 
 

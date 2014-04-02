@@ -25,7 +25,6 @@
 		44E05A2E18832A180082272F /* SpotFlickerFetcherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E05A2D18832A180082272F /* SpotFlickerFetcherTests.m */; };
 		44E05A3B18832A330082272F /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E05A3A18832A330082272F /* FlickrFetcher.m */; };
 		44E05A3E188337760082272F /* TagTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E05A3D188337760082272F /* TagTableViewController.m */; };
-		44E05A4118833C160082272F /* RecentPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E05A4018833C160082272F /* RecentPhotosViewController.m */; };
 		44E05A441883A5150082272F /* FlickPhotoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E05A431883A5150082272F /* FlickPhotoTableViewController.m */; };
 		44FD395B18EAC9CA0056773E /* RecentPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FD395A18EAC9CA0056773E /* RecentPhotos.m */; };
 		44FD395E18EB13520056773E /* RecentPhotoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FD395D18EB13520056773E /* RecentPhotoTableViewController.m */; };
@@ -69,8 +68,6 @@
 		44E05A3A18832A330082272F /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
 		44E05A3C188337760082272F /* TagTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagTableViewController.h; sourceTree = "<group>"; };
 		44E05A3D188337760082272F /* TagTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagTableViewController.m; sourceTree = "<group>"; };
-		44E05A3F18833C160082272F /* RecentPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentPhotosViewController.h; sourceTree = "<group>"; };
-		44E05A4018833C160082272F /* RecentPhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentPhotosViewController.m; sourceTree = "<group>"; };
 		44E05A421883A5150082272F /* FlickPhotoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickPhotoTableViewController.h; sourceTree = "<group>"; };
 		44E05A431883A5150082272F /* FlickPhotoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickPhotoTableViewController.m; sourceTree = "<group>"; };
 		44FD395918EAC9CA0056773E /* RecentPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentPhotos.h; sourceTree = "<group>"; };
@@ -139,8 +136,6 @@
 		448A791918C37992009D564E /* Recent */ = {
 			isa = PBXGroup;
 			children = (
-				44E05A4018833C160082272F /* RecentPhotosViewController.m */,
-				44E05A3F18833C160082272F /* RecentPhotosViewController.h */,
 				44FD395918EAC9CA0056773E /* RecentPhotos.h */,
 				44FD395A18EAC9CA0056773E /* RecentPhotos.m */,
 			);
@@ -180,11 +175,11 @@
 		44E05A0518832A180082272F /* SpotFlickerFetcher */ = {
 			isa = PBXGroup;
 			children = (
-				448A791918C37992009D564E /* Recent */,
-				44E05A3718832A330082272F /* FlickrFetcher */,
-				4488784B18C1EBA600FEF56E /* Storyboards */,
 				44E05A0E18832A180082272F /* AppDelegate.h */,
 				44E05A0F18832A180082272F /* AppDelegate.m */,
+				44E05A3718832A330082272F /* FlickrFetcher */,
+				448A791918C37992009D564E /* Recent */,
+				4488784B18C1EBA600FEF56E /* Storyboards */,
 				4459CE8718E3B7A400A32BB8 /* ImageVIewController */,
 				4459CE8318E3AAAA00A32BB8 /* TableViewControllers */,
 				44E05A1A18832A180082272F /* Images.xcassets */,
@@ -331,7 +326,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				44FD395E18EB13520056773E /* RecentPhotoTableViewController.m in Sources */,
-				44E05A4118833C160082272F /* RecentPhotosViewController.m in Sources */,
 				44E05A3E188337760082272F /* TagTableViewController.m in Sources */,
 				4459CE8218E3AA9700A32BB8 /* ImageViewController.m in Sources */,
 				44E05A441883A5150082272F /* FlickPhotoTableViewController.m in Sources */,
