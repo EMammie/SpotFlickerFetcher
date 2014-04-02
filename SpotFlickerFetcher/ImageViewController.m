@@ -60,6 +60,9 @@
     return self;
 }
 
+
+#pragma mark - View Controller Lifecycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -99,4 +102,15 @@
     if (wScale > hScale) self.scrollView.zoomScale = wScale;
     else self.scrollView.zoomScale = hScale;
 }
+
+#pragma mark - SplitViewController Delegate methods
+
+- (void)splitViewController:(UISplitViewController *)svc
+     willShowViewController:(UIViewController *)aViewController
+  invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
+{
+    self.splitViewBarButtonItem = nil;
+}
+
+
 @end
