@@ -7,7 +7,7 @@
 //
 
 #import "FlickPhotoTableViewController.h"
-#import "FlickerPhotoImageViewController.h"
+#import "ImageViewController.h"
 #import "RecentPhotos.h"
 
 @interface FlickPhotoTableViewController ()

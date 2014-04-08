@@ -100,7 +100,7 @@
         <!--Flicker Photo Image View Controller-->
         <scene sceneID="o9j-Rc-nWA">
             <objects>
-                <viewController id="dc7-oN-9Sq" customClass="FlickerPhotoImageViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="dc7-oN-9Sq" customClass="FlickerPhotoImageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Vfv-V1-KRN"/>
                         <viewControllerLayoutGuide type="bottom" id="3to-Po-g9Z"/>
@@ -109,27 +109,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="11a-nL-XwQ">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q6t-kc-nnh">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="3W1-HO-Jb3"/>
                     <connections>
-                        <outlet property="scrollView" destination="11a-nL-XwQ" id="d7V-8y-yiE"/>
+                        <outlet property="scrollView" destination="q6t-kc-nnh" id="JZZ-rT-oWB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iap-65-LPM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2535" y="-625"/>
         </scene>
-        <!--Navigation Controller - Non-Recents-->
+        <!--Navigation Controller-->
         <scene sceneID="MxB-qs-sAU">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Yt3-98-9vS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Non-Recents" id="PG4-3K-Mfg"/>
+                    <tabBarItem key="tabBarItem" systemItem="featured" id="PG4-3K-Mfg"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hDB-wn-S99">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

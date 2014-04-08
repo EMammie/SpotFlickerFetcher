@@ -7,13 +7,33 @@
 //
 
 #import "ImageViewController.h"
+#import "NetworkActivityIndicator.h"
+
 
 @interface ImageViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) UIImageView *imageView;
+@property (nonatomic, strong) UIActivityIndicatorView *spinner;
+
 @end
 
 @implementation ImageViewController
+
+
+-(UIActivityIndicatorView *)setSpinner
+{
+    if (!_spinner) {
+        _spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        _spinner.color = [UIColor blueColor];
+        
+        [self.view addSubview:_spinner];
+        [_spinner setTranslatesAutoresizingMaskIntoConstraints:NO];
+        NSDictionary *variables = NSDictionaryOfVariableBindings(_spinner);
+        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[_spinner]-|" options:0 metrics:nil views:variables]];
+        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[_spinner]-|" options:0 metrics:nil views:variables]];
+    }
+    return _spinner;
+}
 
 -(void)setImageURL:(NSURL *)imageURL
 {
@@ -23,27 +43,41 @@
 }
 
 -(void)resetImage
- {
+{
+  
     if (self.scrollView)
     {
         self.scrollView.contentSize = CGSizeZero;
         self.imageView.image = nil;
         
-        NSData *imageData = [[NSData alloc] initWithContentsOfURL:self.imageURL];
-        UIImage *image = [[UIImage alloc] initWithData:imageData];
-        
-        if (image)
-        {
-            self.scrollView.zoomScale = 1.0;
-            self.scrollView.contentSize = image.size;
-            self.imageView.image = image;
-            self.imageView.frame = (CGRectMake(0, 0, image.size.width, image.size.height));
-        }
+        NSURL *imageURL = self.imageURL;
     
+        dispatch_queue_t queue = dispatch_queue_create("Image Downloadeer", NULL);
+        dispatch_async(queue,
+            ^{
+                [NetworkActivityIndicator start];
+                NSData *imageData = [[NSData alloc] initWithContentsOfURL:self.imageURL];
+                [NetworkActivityIndicator stop];
+            if (imageURL == self.imageURL)
+            {
+                dispatch_async(dispatch_get_main_queue(),
+                ^{
+                  UIImage *image = [[UIImage alloc] initWithData:imageData];
+                    
+            if (image)
+            {
+                self.scrollView.zoomScale = 1.0;
+                self.scrollView.contentSize = image.size;
+                self.imageView.image = image;
+                self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+                
+            }
+       
+                });
+            }
+            });
     }
 }
-
-
 
 -(UIImageView *)imageView
 {
@@ -59,6 +93,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    
+   
+    
     [self.scrollView addSubview:self.imageView];
     self.scrollView.minimumZoomScale= .2;
     self.scrollView.maximumZoomScale =.5;
@@ -67,6 +104,10 @@
     self.titleBarButtonItem.title = self.title;
     self.splitViewController.delegate = self;
     [self handleSplitViewBarButtonItem:self.splitViewBarButtonItem];
+    
+    
+    
+    
     [self resetImage];
 }
 

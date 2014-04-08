@@ -46,34 +46,40 @@
 
 #pragma mark - View Lifecycle
 
-- (void)viewDidLoad
+-(void)viewDidLoad
 {
     [super viewDidLoad];
-    self.photos = [FlickrFetcher stanfordPhotos];
     
-    NSLog(@"%@",FLICKR_TAGS);
+    dispatch_queue_t queue = dispatch_queue_create("Image Downloader", NULL);
     
-    for (NSDictionary *photo in self.photos)
-    {
-        NSLog(@"--%@", photo);
-    }
-  
-   
+    dispatch_async(queue, ^{
+    
+        NSArray *photos = [FlickrFetcher stanfordPhotos];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            self.photos = photos;
+            
+            }
+        );
+        }
+    );
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+
 }
-
-
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+-(NSInteger )numberOfSectionsInTableView:(UITableView *)tableView
 {
-//#warning Potentially incomplete method implementation.
-    // Return the number of sections.
+
     return 1;
 }
 
@@ -96,9 +102,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier
                                                             forIndexPath:indexPath];
     NSString *tag = [[self.photosByTag allKeys] objectAtIndex:indexPath.row];
-    int photoCount = [self.photosByTag[tag] count];
+    NSUInteger photoCount = [self.photosByTag[tag] count];
     cell.textLabel.text = [tag capitalizedString];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d photo%@", photoCount, photoCount > 1 ? @"s" : @""];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu photo%@", (unsigned long)photoCount, photoCount > 1 ? @"s" : @""];
     return cell;
 }
 
@@ -162,7 +168,7 @@
                                                           withObject:self.photosByTag[tag]];
                     [segue.destinationViewController setTitle:[tag capitalizedString]];
                     
-                                    }
+                }
             }
         }
     }

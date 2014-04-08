@@ -26,6 +26,7 @@
 		44E05A3B18832A330082272F /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E05A3A18832A330082272F /* FlickrFetcher.m */; };
 		44E05A3E188337760082272F /* TagTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E05A3D188337760082272F /* TagTableViewController.m */; };
 		44E05A441883A5150082272F /* FlickPhotoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E05A431883A5150082272F /* FlickPhotoTableViewController.m */; };
+		44E130D818F45473009952D3 /* NetworkActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E130D718F45473009952D3 /* NetworkActivityIndicator.m */; };
 		44FD395B18EAC9CA0056773E /* RecentPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FD395A18EAC9CA0056773E /* RecentPhotos.m */; };
 		44FD395E18EB13520056773E /* RecentPhotoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FD395D18EB13520056773E /* RecentPhotoTableViewController.m */; };
 /* End PBXBuildFile section */
@@ -70,6 +71,8 @@
 		44E05A3D188337760082272F /* TagTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagTableViewController.m; sourceTree = "<group>"; };
 		44E05A421883A5150082272F /* FlickPhotoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickPhotoTableViewController.h; sourceTree = "<group>"; };
 		44E05A431883A5150082272F /* FlickPhotoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickPhotoTableViewController.m; sourceTree = "<group>"; };
+		44E130D618F45473009952D3 /* NetworkActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkActivityIndicator.h; path = ../NetworkActivityIndicator.h; sourceTree = "<group>"; };
+		44E130D718F45473009952D3 /* NetworkActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkActivityIndicator.m; path = ../NetworkActivityIndicator.m; sourceTree = "<group>"; };
 		44FD395918EAC9CA0056773E /* RecentPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentPhotos.h; sourceTree = "<group>"; };
 		44FD395A18EAC9CA0056773E /* RecentPhotos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentPhotos.m; sourceTree = "<group>"; };
 		44FD395C18EB13520056773E /* RecentPhotoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentPhotoTableViewController.h; sourceTree = "<group>"; };
@@ -220,6 +223,8 @@
 		44E05A3718832A330082272F /* FlickrFetcher */ = {
 			isa = PBXGroup;
 			children = (
+				44E130D718F45473009952D3 /* NetworkActivityIndicator.m */,
+				44E130D618F45473009952D3 /* NetworkActivityIndicator.h */,
 				44E05A3818832A330082272F /* FlickrAPIKey.h */,
 				44E05A3918832A330082272F /* FlickrFetcher.h */,
 				44E05A3A18832A330082272F /* FlickrFetcher.m */,
@@ -328,6 +333,7 @@
 				44FD395E18EB13520056773E /* RecentPhotoTableViewController.m in Sources */,
 				44E05A3E188337760082272F /* TagTableViewController.m in Sources */,
 				4459CE8218E3AA9700A32BB8 /* ImageViewController.m in Sources */,
+				44E130D818F45473009952D3 /* NetworkActivityIndicator.m in Sources */,
 				44E05A441883A5150082272F /* FlickPhotoTableViewController.m in Sources */,
 				44FD395B18EAC9CA0056773E /* RecentPhotos.m in Sources */,
 				44E05A1018832A180082272F /* AppDelegate.m in Sources */,
