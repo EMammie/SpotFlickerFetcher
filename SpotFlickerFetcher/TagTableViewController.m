@@ -8,6 +8,8 @@
 
 #import "TagTableViewController.h"
 #import "FlickrFetcher.h"
+#import "NetworkActivityIndicator.h"
+
 //#import "RecentPhotos.h"
 
 @interface TagTableViewController ()
@@ -53,7 +55,8 @@
     dispatch_queue_t queue = dispatch_queue_create("Image Downloader", NULL);
     
     dispatch_async(queue, ^{
-    
+        
+        [NetworkActivityIndicator start];
         NSArray *photos = [FlickrFetcher stanfordPhotos];
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -64,7 +67,7 @@
         );
         }
     );
-    
+    [NetworkActivityIndicator stop];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
