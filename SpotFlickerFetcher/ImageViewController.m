@@ -8,7 +8,7 @@
 
 #import "ImageViewController.h"
 #import "NetworkActivityIndicator.h"
-
+#import "FlickerCache.h"
 
 @interface ImageViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -50,8 +50,22 @@
         self.scrollView.contentSize = CGSizeZero;
         self.imageView.image = nil;
         
+        
+        if (!self.imageURL) return;
+        [self.spinner startAnimating];
+        
         NSURL *imageURL = self.imageURL;
-    
+        
+        NSData *imageData;
+        
+        NSURL *cachedURL = [FlickerCache cachedURLforURL:imageURL];
+        
+        if (cachedURL)
+        {
+             imageData = [[NSData alloc] initWithContentsOfURL:cachedURL];
+        }
+        else
+        {
         dispatch_queue_t queue = dispatch_queue_create("Image Downloadeer", NULL);
         dispatch_async(queue,
             ^{
@@ -66,17 +80,21 @@
                     
             if (image)
             {
+                [self.spinner stopAnimating];
                 self.scrollView.zoomScale = 1.0;
                 self.scrollView.contentSize = image.size;
                 self.imageView.image = image;
                 self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
                 
             }
-       
-                });
+                   
+                });//main queue Dispatch
+                 [FlickerCache cacheData:imageData forURL:self.imageURL];
             }
             });
+        }
     }
+        
 }
 
 -(UIImageView *)imageView

@@ -48,10 +48,22 @@
 
 #pragma mark - View Lifecycle
 
--(void)viewDidLoad
+- (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self
+                            action:@selector(FlickerPhotoLoader)
+                  forControlEvents:UIControlEventValueChanged];
+    
+    [self FlickerPhotoLoader];
+}
+    
+    
+-(void)FlickerPhotoLoader
+    {
+        [self.refreshControl beginRefreshing];
     dispatch_queue_t queue = dispatch_queue_create("Image Downloader", NULL);
     
     dispatch_async(queue, ^{
@@ -63,11 +75,13 @@
             
             self.photos = photos;
             
+            [self.refreshControl endRefreshing];
+            [NetworkActivityIndicator stop];
             }
         );
         }
     );
-    [NetworkActivityIndicator stop];
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

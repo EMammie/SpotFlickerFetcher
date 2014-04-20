@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4459CE8218E3AA9700A32BB8 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4459CE8118E3AA9700A32BB8 /* ImageViewController.m */; };
 		4459CE8618E3AB0600A32BB8 /* FlickerPhotoImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4459CE8518E3AB0600A32BB8 /* FlickerPhotoImageViewController.m */; };
+		4481EE8318FF5E0400BDCB0F /* FlickerCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4481EE8218FF5E0400BDCB0F /* FlickerCache.m */; };
 		44E05A0018832A180082272F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E059FF18832A180082272F /* Foundation.framework */; };
 		44E05A0218832A180082272F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E05A0118832A180082272F /* CoreGraphics.framework */; };
 		44E05A0418832A180082272F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E05A0318832A180082272F /* UIKit.framework */; };
@@ -46,6 +47,8 @@
 		4459CE8118E3AA9700A32BB8 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		4459CE8418E3AB0600A32BB8 /* FlickerPhotoImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickerPhotoImageViewController.h; sourceTree = "<group>"; };
 		4459CE8518E3AB0600A32BB8 /* FlickerPhotoImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickerPhotoImageViewController.m; sourceTree = "<group>"; };
+		4481EE8118FF5E0400BDCB0F /* FlickerCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlickerCache.h; path = SpotFlickerFetcher/FlickerCache.h; sourceTree = "<group>"; };
+		4481EE8218FF5E0400BDCB0F /* FlickerCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlickerCache.m; path = SpotFlickerFetcher/FlickerCache.m; sourceTree = "<group>"; };
 		44E059FC18832A180082272F /* SpotFlickerFetcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotFlickerFetcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44E059FF18832A180082272F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		44E05A0118832A180082272F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -148,6 +151,7 @@
 		44E059F318832A180082272F = {
 			isa = PBXGroup;
 			children = (
+				44E0DC5C19042C2D0005DAC5 /* FlickerCache */,
 				44E05A0518832A180082272F /* SpotFlickerFetcher */,
 				44E05A2718832A180082272F /* SpotFlickerFetcherTests */,
 				44E059FE18832A180082272F /* Frameworks */,
@@ -230,6 +234,15 @@
 				44E05A3A18832A330082272F /* FlickrFetcher.m */,
 			);
 			path = FlickrFetcher;
+			sourceTree = "<group>";
+		};
+		44E0DC5C19042C2D0005DAC5 /* FlickerCache */ = {
+			isa = PBXGroup;
+			children = (
+				4481EE8118FF5E0400BDCB0F /* FlickerCache.h */,
+				4481EE8218FF5E0400BDCB0F /* FlickerCache.m */,
+			);
+			name = FlickerCache;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,6 +353,7 @@
 				44E05A3B18832A330082272F /* FlickrFetcher.m in Sources */,
 				44E05A0C18832A180082272F /* main.m in Sources */,
 				4459CE8618E3AB0600A32BB8 /* FlickerPhotoImageViewController.m in Sources */,
+				4481EE8318FF5E0400BDCB0F /* FlickerCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
